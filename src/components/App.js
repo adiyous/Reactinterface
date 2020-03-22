@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      name: 'Ali'
+      myAppointment: []
     }
   }
   componentDidMount(){
@@ -17,6 +17,9 @@ class App extends Component {
     .then(result => {
       const apts = result.map(item => {
         return item
+      })
+      this.setState({
+        myAppointment: apts
       })
     })
   }
@@ -27,7 +30,6 @@ class App extends Component {
         <div className="row">
           <div className="col-md-12 bg-white">
             <div className="container">
-              <h1>{this.state.name}</h1>
               <AddAppointments/>
               <SearchAppointments/>
               <ListAppointments />

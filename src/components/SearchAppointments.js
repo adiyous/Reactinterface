@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 
-class AddAppointments extends Component {
+class SearchAppointments extends Component {
     render(){
         return(
             <div>
-                Add Appointments
+                Search Appointments
             </div>
         )
     }
 }
 
-export default AddAppointments
+export default SearchAppointments

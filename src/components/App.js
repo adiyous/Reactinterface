@@ -3,6 +3,7 @@ import '../css/App.css';
 import AddAppointments from './AddAppointments'
 import SearchAppointments from './SearchAppointments'
 import ListAppointments from './ListAppointments'
+import {without} from 'lodash'
 
 class App extends Component {
   constructor(props){
@@ -11,6 +12,14 @@ class App extends Component {
       myAppointments: [],
       lastIndex: 0
     }
+    this.deleteAppointments = this.deleteAppointments.bind(this)
+  }
+  deleteAppointments(apt){
+    let tempApts = this.state.myAppointments 
+    tempApts = without(tempApts, apt)
+    this.setState({
+      myAppointments: tempApts
+    })
   }
   componentDidMount(){
     fetch('./data.json')
@@ -39,6 +48,7 @@ class App extends Component {
               <SearchAppointments/>
               <ListAppointments 
                 appointments={this.state.myAppointments}
+                deleteAppointmentsProp ={this.deleteAppointments}
               />
             </div>
           </div>

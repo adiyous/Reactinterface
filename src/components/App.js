@@ -12,12 +12,19 @@ class App extends Component {
       myAppointments: [],
       formDisplay: false,
       orderBy: 'petName',
-      orederDir: 'asc',
+      orderDir: 'asc',
       lastIndex: 0
     }
     this.deleteAppointments = this.deleteAppointments.bind(this)
     this.toggleForm = this.toggleForm.bind(this)
     this.addAppointment = this.addAppointment.bind(this)
+    this.changeOrder = this.changeOrder.bind(this)
+  }
+  changeOrder(order, dir){
+    this.setState({
+      orderBy: order,
+      orderDir: dir
+    })
   }
   addAppointment(apt){
     let tempApts = this.state.myAppointments
@@ -59,7 +66,7 @@ class App extends Component {
   render(){
     let order
     let filteredApts = this.state.myAppointments
-    this.state.orederDir === 'asc' ? order = 1 : order = -1
+    this.state.orderDir === 'asc' ? order = 1 : order = -1
     filteredApts.sort((a,b) => {
       if (a[this.state.orderBy].toLowerCase() < 
       b[this.state.orderBy].toLowerCase()) { 
@@ -81,7 +88,8 @@ class App extends Component {
                 />
               <SearchAppointments
                 orderByProp={this.state.orderBy}
-                orderDirProp={this.state.orederDir}
+                orderDirProp={this.state.orderDir}
+                changeOrderProp={this.changeOrder}
                 />
               <ListAppointments 
                 appointments={filteredApts}

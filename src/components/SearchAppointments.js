@@ -24,20 +24,37 @@ class SearchAppointments extends Component {
                   </button>
     
                   <div className="sort-menu dropdown-menu dropdown-menu-right">
-                    <button className="sort-by dropdown-item" href="#">
+                    <button className={
+                        'sort-by dropdown-item ' + 
+                        (this.props.orderByProp === 'petName' ? 'active' : '')
+                        } 
+                        href="#"
+                        >
                       Pet Name
                     </button>
-                    <button className="sort-by dropdown-item" href="#">
+                    <button className={
+                        'sort-by dropdown-item ' + 
+                        (this.props.orderByProp === 'aptDate' ? 'active' : '')
+                        } href="#">
                       Date
                     </button>
-                    <button className="sort-by dropdown-item" href="#">
+                    <button className={
+                        'sort-by dropdown-item ' + 
+                        (this.props.orderByProp === 'ownerName' ? 'active' : '')
+                        } href="#">
                       Owner
                     </button>
                     <div role="separator" className="dropdown-divider" />
-                    <button className="sort-by dropdown-item" href="#">
+                    <button className={
+                        'sort-by dropdown-item ' + 
+                        (this.props.orderDirProp === 'asc' ? 'active' : '')
+                        } href="#">
                       Asc
                     </button>
-                    <button className="sort-by dropdown-item" href="#">
+                    <button className={
+                        'sort-by dropdown-item ' + 
+                        (this.props.orderDirProp === 'desc' ? 'active' : '')
+                        } href="#">
                       Desc
                     </button>
                   </div>

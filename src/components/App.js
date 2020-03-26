@@ -79,7 +79,10 @@ class App extends Component {
                 toggleFormProp={this.toggleForm}
                 addAppointmentProp={this.addAppointment}
                 />
-              <SearchAppointments/>
+              <SearchAppointments
+                orderByProp={this.state.orderBy}
+                orderDirProp={this.state.orederDir}
+                />
               <ListAppointments 
                 appointments={filteredApts}
                 deleteAppointmentsProp ={this.deleteAppointments}

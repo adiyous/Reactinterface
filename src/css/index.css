@@ -3,7 +3,8 @@ body {
   background-color: #337ab7;
 }
 
-header a, footer a {
+header a, 
+footer a {
   color: white;
 }
 
@@ -11,12 +12,9 @@ footer {
   font-size: 0.8em;
 }
 
-.bg-primery, .btn-primary {
+.bg-primery, 
+.btn-primary {
   background-color: #377bb5 !important;
   border: inherit;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}

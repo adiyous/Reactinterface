@@ -11,6 +11,7 @@ class SearchAppointments extends Component {
                   type="text"
                   className="form-control"
                   aria-label="Search Appointments"
+                  onChane={e => this.props.searchAptsProp(e.target.value)}
                 />
                 <div className="input-group-append">
                   <button

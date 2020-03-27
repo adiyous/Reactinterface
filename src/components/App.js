@@ -20,6 +20,10 @@ class App extends Component {
     this.toggleForm = this.toggleForm.bind(this)
     this.addAppointment = this.addAppointment.bind(this)
     this.changeOrder = this.changeOrder.bind(this)
+    this.searchApts = this.searchApts.bind(this) 
+  }
+  searchApts(query){
+    this.setState({queryText: query})
   }
   changeOrder(order, dir){
     this.setState({
@@ -101,6 +105,7 @@ class App extends Component {
                 orderByProp={this.state.orderBy}
                 orderDirProp={this.state.orderDir}
                 changeOrderProp={this.changeOrder}
+                searchAptsProp={this.searchApts}
                 />
               <ListAppointments 
                 appointments={filteredApts}

@@ -17,7 +17,20 @@ class ListAppointments extends Component {
                     </div>
                     <div className="pet-info media-body">
                         <div className="pet-head d-flex">
-                            <span className="pet-name">{item.petName}</span>
+                            <span 
+                                className="pet-name"
+                                contentEditable
+                                suppressContentEditableWarning 
+                                onBlur={
+                                    e => this.props.updateInfoProp(
+                                        'petName', 
+                                        e.target.innerText,
+                                        item.aptId
+                                    )
+                                }
+                            >
+                                {item.petName}
+                            </span>
                             <span className="apt-date ml-auto">
                                 <Moment 
                                     date={item.aptDate}
@@ -28,9 +41,34 @@ class ListAppointments extends Component {
                         </div>
                         <div className="owner-name">
                             <span className="label-item">Owner: </span>
-                            <span>{item.ownerName}</span>
+                            <span
+                                contentEditable
+                                suppressContentEditableWarning 
+                                onBlur={
+                                    e => this.props.updateInfoProp(
+                                        'ownerName', 
+                                        e.target.innerText,
+                                        item.aptId
+                                    )
+                                }
+                            >
+                                {item.ownerName}
+                            </span>
                         </div>
-                        <div className="apt-notes">{item.aptNotes}</div>
+                        <div 
+                            className="apt-notes"
+                            contentEditable
+                            suppressContentEditableWarning 
+                            onBlur={
+                                e => this.props.updateInfoProp(
+                                    'aptNotes', 
+                                    e.target.innerText,
+                                    item.aptId
+                                )
+                            }
+                        >
+                                {item.aptNotes}
+                        </div>
                     </div>
                 </div>
             ))}
